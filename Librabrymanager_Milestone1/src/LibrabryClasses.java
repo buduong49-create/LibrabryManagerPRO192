@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-class Sach {
+class book {
     int bookID;
     String title;
     String author;
@@ -21,23 +21,23 @@ class Sach {
     }
 
     public void nhapBook(Scanner sc) {
-        System.out.println(" Nhap Thong Tin Sach ");
-        System.out.print("Nhap ID: ");
+        System.out.println(" enter information book ");
+        System.out.print("enter ID: ");
         bookID = sc.nextInt();
         sc.nextLine();
 
-        System.out.print("Nhap ten sach: ");
+        System.out.print("enter name book: ");
         title = sc.nextLine();
 
-        System.out.print("Nhap tac gia: ");
+        System.out.print("enter author: ");
         author = sc.nextLine();
 
-        System.out.print("Nhap the loai: ");
+        System.out.print("enter category: ");
         category = sc.nextLine();
     }
 
     public void xuatBook() {
-        System.out.println("[ID: " + bookID + " | Ten: " + title + " | Tac gia: " + author + " | The loai: " + category + "]");
+        System.out.println("[ID: " + bookID + " | Name: " + title + " | author: " + author + " | category: " + category + "]");
     }
 public void updateBook(Scanner sc) {
         System.out.println("\nWhat do you want to update? 1. Update Title | 2. Update Author | 3. Update Category");
@@ -219,13 +219,13 @@ class BorrowManager {
     }
 }
 class Report {
-    public void generateBorrowReport(ArrayList<Sach> danhSachSach) {
+    public void generateBorrowReport(ArrayList<Sach> booklist) {
         System.out.println("===== Library Borrowing Report =====");
         int borrowedCount = 0;
         int availableCount = 0;
         System.out.println("\nBorrowed Books:");
 
-        for (Sach b : danhSachSach) {
+        for (book b : booklist) {
             if (b.isBorrowed()) {
                 System.out.println("- " + b.getBookName());
                 borrowedCount++;
@@ -233,7 +233,7 @@ class Report {
         }
 
         System.out.println("\nAvailable Books:");
-        for (Sach b : danhSachSach) {
+        for (book b : book) {
             if (!b.isBorrowed()) {
                 System.out.println("- " + b.getBookName());
                 availableCount++;
@@ -241,7 +241,7 @@ class Report {
         }
 
         System.out.println("\nSummary:");
-        System.out.println("Total books: " + danhSachSach.size());
+        System.out.println("Total books: " + booklist.size());
         System.out.println("Borrowed books: " + borrowedCount);
         System.out.println("Available books: " + availableCount);
         System.out.println("====================================");
